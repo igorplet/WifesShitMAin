@@ -30,19 +30,27 @@
 
         .presentation {
             width: 100vw;
-            min-height: 100vh;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slides-container {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
         }
 
         .slide {
-            display: none;
+            min-width: 100vw;
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
             padding: 60px 80px 120px 80px;
             background: var(--vv-white);
             overflow-y: auto;
-            min-height: 100vh;
-        }
-
-        .slide.active {
-            display: block;
+            box-sizing: border-box;
         }
 
         .slide-header {
@@ -641,6 +649,7 @@
 </head>
 <body>
     <div class="presentation">
+        <div class="slides-container" id="slidesContainer">
         <!-- Slide 1: Title -->
         <div class="slide active title-slide">
             <div class="block-label">БЛОК 1: Введение</div>
@@ -2487,19 +2496,18 @@
             </div>
         </div>
 
-        <!-- Slide 60: Thank You -->
+        <!-- Slide 25: Thank You -->
         <div class="slide final-slide">
-            <div class="block-label">БЛОК 9: Стратегические выводы</div>
             <h1>Спасибо за внимание!</h1>
-            <h2>Контакты: info@vkusvill.ru</h2>
-            <div class="contact-info">Связаться для презентации, инвестиций и пилота</div>
+            <h2>Рекомендация: Запустить проект в Q1 2026</h2>
+            <div class="contact-info">Инвестиции: 450,000₽ | ROI за 3 года: 848%</div>
         </div>
-        <!-- Slide 31-60: Остальное содержимое --><!-- Additional slides ... -->
-        <!-- These would follow the same structure as slides 1-30 -->
+
+        </div> <!-- end slides-container -->
 
         <div id="slideNavigation" class="navigation">
             <div class="slide-counter">
-                <span id="currentSlide">1</span> / <span id="totalSlides">60</span>
+                <span id="currentSlide">1</span> / <span id="totalSlides">25</span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
